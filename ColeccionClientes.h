@@ -1,0 +1,24 @@
+#ifndef COLECCIONCLIENTES_H
+#define COLECCIONCLIENTES_H
+
+#include <iostream>
+#include "Cliente.h"
+using namespace std;
+
+//coleccionclientes.h
+
+class ColeccionClientes{
+private:
+    Cliente* clientes;
+    int capacidad;
+    int cantidad;
+
+public:
+    ColeccionClientes();
+    ~ColeccionClientes();
+
+    void agregarCliente(Cliente cliente);
+    void mostrarClientes();
+};
+
+#endif
