@@ -3,24 +3,21 @@
 using namespace std;
 
 //coleccionclientes.cpp
-int const MAXCLIENTES= 100;
 
 ColeccionClientes::ColeccionClientes() {
-    capacidad = 100;
-    cantidad = 0;
-    clientes = new Cliente[100];
-}
-
-ColeccionClientes::ColeccionClientes(int can) {
-    capacidad = 100;
-    cantidad = can;
-    clientes = new Cliente[100];
+    clientes = new Cliente*[capacidad];
+    for(int i = 0; i < capacidad; i++) {
+       clientes[i] = NULL;
+    }
 }
 ColeccionClientes::~ColeccionClientes() { 
+   for(int i = 0; i < cantidad; i++) {
+        delete clientes[i];
+    }
     delete[] clientes;
 }
 
-void ColeccionClientes::agregarCliente(Cliente cliente) {
+void ColeccionClientes::agregarCliente(Cliente* cliente) {
     if (cantidad < capacidad) {
     clientes[cantidad] = cliente;
     cantidad++;
@@ -34,3 +31,14 @@ void ColeccionClientes::mostrarClientes() {
     cout << clientes[i].toString() << endl;
     }
 }
+
+Cliente* ColeccionClientes::buscarCliente(int id) {
+    for(int i = 0; i < cantidad; i++) {
+        if(clientes[i]->getId() == identificacion) {
+            return clientes[i];
+        }
+    }
+    return NULL;
+}
+
+
