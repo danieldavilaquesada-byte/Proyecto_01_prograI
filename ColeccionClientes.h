@@ -17,7 +17,7 @@ public:
     ColeccionClientes();
     ~ColeccionClientes();
 
-    void agregarCliente(Cliente cliente);
+    void agregarCliente(Cliente* cliente);
     void mostrarClientes();
     Cliente* buscarCliente(int id);
 };
