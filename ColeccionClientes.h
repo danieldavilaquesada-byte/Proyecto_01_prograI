@@ -9,7 +9,7 @@ using namespace std;
 
 class ColeccionClientes{
 private:
-    Cliente* clientes;
+    Cliente** clientes;
     int capacidad;
     int cantidad;
 
