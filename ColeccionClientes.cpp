@@ -28,17 +28,16 @@ void ColeccionClientes::agregarCliente(Cliente* cliente) {
 
 void ColeccionClientes::mostrarClientes() {
     for (int i = 0; i < cantidad; i++) {
-    cout << clientes[i].toString() << endl;
+    cout << clientes[i]->toString() << endl;
     }
 }
 
 Cliente* ColeccionClientes::buscarCliente(int id) {
     for(int i = 0; i < cantidad; i++) {
-        if(clientes[i]->getId() == identificacion) {
+        if(clientes[i]->getId() == id) {
             return clientes[i];
         }
     }
     return NULL;
 }
-
 
