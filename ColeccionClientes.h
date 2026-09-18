@@ -19,6 +19,7 @@ public:
 
     void agregarCliente(Cliente cliente);
     void mostrarClientes();
+    Cliente* buscarCliente(int id);
 };
 
 #endif
