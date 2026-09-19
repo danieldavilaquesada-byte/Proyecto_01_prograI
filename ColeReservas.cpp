@@ -37,8 +37,8 @@ Reserva* ColeReservas::buscarReserva(int num){
 }
 void ColeReservas::mostrarXcancha(string codigo){
     bool encontro=false;
-    for(int i=0;i<cant;i++){
-        if(resrervas[i]!=nullptr&&reservas[i]->getCancha()->getCodigo()==codigo){
+    for(int i=0;i<canti;i++){
+        if(reservas[i]!=nullptr&&reservas[i]->getCancha()->getCodigo()==codigo){
             reservas[i]->mostrarReserva();
             encontro=true;
         }
@@ -56,3 +56,21 @@ bool ColeReservas::cancelarReserva(int num){
     cout<<"La reserva no se encontro"<<endl;
         return false;
     }
+   Reserva* ColeReservas::registrarReserva(Cliente* cli, Cancha* canch, int horaInicial, int cant) {
+    if (canti >= MAX_RESERVAS) {
+        cout << "No se pueden registrar mas reservas. Limite alcanzado." << endl;
+        return nullptr;
+    }
+    if (horaInicial < 0 || cant <= 0 || horaInicial + cant > 12) {
+        cout << "Franja horaria invalida." << endl;
+        return nullptr;
+    }
+    if (!canch->libre(horaInicial, horaInicial + cant - 1)) {
+        cout << "Alguna de las franjas solicitadas no esta libre." << endl;
+        return nullptr;
+    }
+
+    Reserva* nueva = new Reserva(cli, canch, horaInicial, cant);
+    agregarReserva(nueva);
+    return nueva;
+}

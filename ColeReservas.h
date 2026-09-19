@@ -1,6 +1,7 @@
 #ifndef COLERESERVAS_H
 #define COLERESERVAS_H
 #include "Reservas.h"
+#include <string>
 const int max=120;
 class ColeReservas{
     private:
@@ -13,5 +14,6 @@ class ColeReservas{
     Reserva* buscarReserva(int num);
     void mostrarXcancha(string codigo);
     bool cancelarReserva(int num);
+    Reserva* registrarReserva(Cliente* cli, Cancha* canch, int horaInicial, int cant);
 };
 #endif

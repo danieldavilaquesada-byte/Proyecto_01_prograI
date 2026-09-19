@@ -71,8 +71,8 @@ void GestorCanchas::mostrarTodas() const {
     cout << "\n--- Listado de canchas (" << cantidad << ") ---" << endl;
     for (int i = 0; i < cantidad; i++) {
         cout << (i + 1) << ". Codigo: " << canchas[i]->getCodigo()
-             << " | Deporte: " << canchas[i]->getTipoDeporte()
-             << " | Precio/hora: " << canchas[i]->getPrecioPorHora() << endl;
+             << " | Deporte: " << canchas[i]->getDeporte()
+             << " | Precio/hora: " << canchas[i]->getPrecio() << endl;
     }
 }
 
@@ -86,7 +86,7 @@ bool GestorCanchas::modificarPrecio(const string& codigo, double nuevoPrecio) {
         cout << "No se encontro una cancha con el codigo " << codigo << "." << endl;
         return false;
     }
-    c->setPrecioPorHora(nuevoPrecio);
+    c->setPrecio(nuevoPrecio);
     cout << "Precio actualizado correctamente." << endl;
     return true;
 }
@@ -97,7 +97,7 @@ void GestorCanchas::mostrarDisponibilidad(const string& codigo) const {
         cout << "No se encontro una cancha con el codigo " << codigo << "." << endl;
         return;
     }
-    c->mostrarDisponibilidad();
+    c->mostrarDis();
 }
 
 int GestorCanchas::getCantidad() const {
