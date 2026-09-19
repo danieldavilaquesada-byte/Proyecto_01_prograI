@@ -1,5 +1,7 @@
+#include <iostream>
 #include "ColeccionEsperas.h"
 #include <sstream>
+using namespace std;
 
 ColeccionEsperas::ColeccionEsperas(){
     esperas = new Espera*[20];
