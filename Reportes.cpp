@@ -13,10 +13,10 @@ void Reportes::canchaMayor(){
         Cancha* can=gestor->getCancha(i);
         int contador=0;
         
-        for(int j=0;j<cole->getCanti(i);j++){
+        for(int j=0;j<cole->getCanti();j++){
             Reserva* reserv= cole->getReserva(j);
 
-            if(reserv1=nullptr && reserv->getEstado()=="activa" && reserv->getCancha()->getCodigo()==can->getCodigo()){
+            if(reserv !=nullptr && reserv->getEstado()=="activa" && reserv->getCancha()->getCodigo()==can->getCodigo()){
                 contador++;
             }
         }
@@ -33,14 +33,14 @@ void Reportes::canchaMayor(){
         cout<<"No hay reservas activas"<<endl;
     }
 }
-void Reservas::clienteMayor(){
+void Reportes::clienteMayor(){
     Cliente* mayor=nullptr;
     int mayorCant=0;
 
     for(int i=0;i<cole->getCanti();i++){
         Reserva* reserv1=cole->getReserva(i);
-        if(reserv1!= nullptr && reser1->getEstado() == "activa") {
-            Cliente* cli = reser1->getCliente();
+        if(reserv1!= nullptr && reserv1->getEstado() == "activa") {
+            Cliente* cli = reserv1->getCliente();
             int contador = 0;
 
             for (int j = 0; j < cole->getCanti(); j++) {

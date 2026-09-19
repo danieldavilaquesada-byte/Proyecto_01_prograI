@@ -15,5 +15,8 @@ class Reportes{
     void ingresoT();
     void porcenOcupacion();
     void horasMayMen();
+    void porcentajeOcupacion();
+    void horasMayorMenor();
+    void ingresoTotal();
 };
 #endif

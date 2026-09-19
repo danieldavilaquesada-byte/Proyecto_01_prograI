@@ -161,7 +161,7 @@ int buscarCancha(Cancha canchas[], int total, char codigo[]) {
     return -1;
 }
 
-int main() {
+/*int main() {
     Cancha canchas[MAX];
     int total = 0; 
     int opcion;
@@ -259,4 +259,4 @@ int main() {
     } while (opcion != 6);
 
     return 0;
-}
+}*/

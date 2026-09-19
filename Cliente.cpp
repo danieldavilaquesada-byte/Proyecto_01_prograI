@@ -15,31 +15,31 @@ Cliente::Cliente(){
     id = 0;
 }
 
-Cliente::string getNombre() const {
+string Cliente::getNombre() const {
     return nombre;
 }
 
-Cliente::int getNumero() const {
+int Cliente::getNumero() const {
     return numero;
 }
 
-Cliente::int getId() const {
+int Cliente::getId() const {
     return id;
 }
 
-Cliente::void setNombre(string _nombre) {
+void Cliente::setNombre(string _nombre) {
     nombre = _nombre;
 }
 
-Cliente::void setNumero(int _numero) {
+void Cliente::setNumero(int _numero) {
     numero = _numero;
 }  
 
-Cliente::void setId(int _Id) {
-    numero = _Id;
+void Cliente::setId(int _Id) {
+    id = _Id;
 } 
 
-Cliente::string toString() {
+string Cliente::toString() {
     stringstream ss;
     ss << "Nombre: " << nombre << ", Numero: " << numero << ", Id: " << id;
     return ss.str();

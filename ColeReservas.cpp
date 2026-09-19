@@ -1,14 +1,24 @@
 #include <iostream>
 using namespace std;
 #include "ColeReservas.h"
+int ColeReservas::getCanti() {
+    return canti;
+}
+
+Reserva* ColeReservas::getReserva(int i) {
+    if (i >= 0 && i < canti) {
+        return reservas[i];
+    }
+    return nullptr;
+}
 ColeReservas::ColeReservas(){
     canti=0;
-    for(int i=0;i<max;i++){
+    for(int i=0;i<MAX_RESERVAS;i++){
         reservas[i]=nullptr;
     }
 }
 bool ColeReservas::agregarReserva(Reserva* reserva){
-    if(canti<max){
+    if(canti<MAX_RESERVAS){
         reservas[canti]=reserva;
         canti++;
         return true;

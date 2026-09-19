@@ -103,3 +103,9 @@ void GestorCanchas::mostrarDisponibilidad(const string& codigo) const {
 int GestorCanchas::getCantidad() const {
     return cantidad;
 }
+Cancha* GestorCanchas::getCancha(int i) const {
+    if (i >= 0 && i < cantidad) {
+        return canchas[i];
+    }
+    return nullptr;
+}

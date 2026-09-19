@@ -3,7 +3,7 @@
 
 #include<iostream>
 #include "Cliente.h"
-#include "Cancha.h"
+#include "Canchas.h"
 using namespace std;
 
 //espera.h

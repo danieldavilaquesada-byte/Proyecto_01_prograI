@@ -298,15 +298,15 @@ int main() {
                 }
 
                 else if (opcionReportes == 3) {
-                    reportes.ingresoT();
+                    reportes.ingresoTotal();
                 }
 
                 else if (opcionReportes == 4) {
-                    reportes.porcenOcupacion();
+                    reportes.porcentajeOcupacion();
                 }
 
                 else if (opcionReportes == 5) {
-                    reportes.horasMayMen();
+                    reportes.horasMayorMenor();
                 }
 
             } while (opcionReportes != 6);

@@ -4,8 +4,9 @@
 using namespace std;
 
 ColeccionEsperas::ColeccionEsperas(){
-    esperas = new Espera*[20];
-    for (int i=0;i<20;i++) {
+    cantidad = 0;
+    esperas = new Espera*[capacidad];
+    for (int i=0;i<capacidad;i++) {
         esperas[i] = NULL;
     }
 }

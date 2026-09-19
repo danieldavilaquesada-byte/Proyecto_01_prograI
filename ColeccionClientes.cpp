@@ -5,6 +5,8 @@ using namespace std;
 //coleccionclientes.cpp
 
 ColeccionClientes::ColeccionClientes() {
+    capacidad = 10;
+    cantidad = 0;
     clientes = new Cliente*[capacidad];
     for(int i = 0; i < capacidad; i++) {
        clientes[i] = NULL;

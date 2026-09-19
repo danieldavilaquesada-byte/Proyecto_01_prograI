@@ -6,6 +6,7 @@
 
 const int MAX_CANCHAS = 10;
 
+
 // Clase tipo colección: administra el conjunto de canchas del sistemag
 // Usa un arreglo fijo de punteros a Cancha; cada Cancha se crea con new
 class GestorCanchas {
@@ -16,7 +17,7 @@ private:
 public:
     GestorCanchas();
     ~GestorCanchas(); // libera cada Cancha creada dinámicamente
-
+    
     // Registra una nueva cancha retorna false si ya está llena o el código existe
     bool registrarCancha(const std::string& codigo, const std::string& tipoDeporte, double precioPorHora);
 
@@ -37,6 +38,7 @@ public:
 
     int getCantidad() const;
     bool estaLlena() const;
+    Cancha* getCancha(int i) const;
 };
 
 #endif

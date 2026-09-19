@@ -30,14 +30,15 @@ esperando por esa cancha y franja horaria. */
 class ColeccionEsperas{
     private:
     Espera** esperas;
-    int const capacidad = 20;
+    int const capacidad = 10;
     int cantidad;
+    int contador;
 
     public:
     ColeccionEsperas();
     ~ColeccionEsperas();
 
-    void RegistrarCliente(Cliente* cliente);
+    void RegistrarCliente(Espera* clienteEspera);
     string mostrarListado();
     void cambiarEstado();
 
