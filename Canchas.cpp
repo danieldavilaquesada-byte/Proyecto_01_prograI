@@ -1,147 +1,79 @@
+
 #include <iostream>
-
-using namespace std;
-
-const int MAX = 10;   // maximo de canchas
-const int LARGO = 30; // largo de codigo y deporte
-
-class Cancha {
-private:
-    char codigo[LARGO];
-    char deporte[LARGO];
-    double precio;
-    char v[12];  // Guarda: L, O, M
-
-public:
-    Cancha();
-    Cancha(char cod[], char dep[], double pre);
-
-    char* getCodigo();
-    char* getDeporte();
-    double getPrecio();
-    void setPrecio(double nuevoPrecio);
-
-    void mostrarCancha();
-    void mostrarDis();  // las 12
-
-    bool libre(int horaInicial, int horaFinal);
-    void ocupado(int horaInicial, int horaFinal);      // marca como O
-    void liberar(int horaInicial, int horaFinal);      // marca como L
-    void mantenimiento(int horaInicial, int horaFinal);// marca como M
-    void quitarMant(int horaInicial, int horaFinal);   // vuelve a L
-};
+#include "Canchas.h"
 
 
-Cancha::Cancha() {
-    codigo[0] = '\0';
-    deporte[0] = '\0';
-    precio = 0.0;
+Cancha::Cancha() : codigo(""), deporte(""), precio(0) {
     for (int i = 0; i < 12; i++) v[i] = 'L';
 }
 
-
-Cancha::Cancha(char cod[], char dep[], double pre) {
-    int i = 0;
-    while (cod[i] != '\0' && i < LARGO - 1) {
-        codigo[i] = cod[i];
-        i++;
-    }
-    codigo[i] = '\0';
-
-    i = 0;
-    while (dep[i] != '\0' && i < LARGO - 1) {
-        deporte[i] = dep[i];
-        i++;
-    }
-    deporte[i] = '\0';
-
-    precio = pre;
+Cancha::Cancha(string cod, string dep, double pre)
+    : codigo(cod), deporte(dep), precio(pre) {
     for (int i = 0; i < 12; i++) v[i] = 'L';
 }
 
-
-char* Cancha::getCodigo() { 
-    return codigo; }
-char* Cancha::getDeporte() { 
-    return deporte; }
+string Cancha::getCodigo() {
+     return codigo; }
+string Cancha::getDeporte() {
+     return deporte; }
 double Cancha::getPrecio() {
-    return precio; }
-
-
-void Cancha::setPrecio(double nuevoPrecio) {
-    precio = nuevoPrecio;
-}
-
+     return precio; }
+void Cancha::setPrecio(double p) { precio = p; }
 
 void Cancha::mostrarCancha() {
-    cout << "Codigo: " << codigo << endl;
-    cout << "Deporte: " << deporte << endl;
-    cout << "Precio x hora: " << precio << endl;
+    cout << "Codigo: " << codigo
+         << " | Deporte: " << deporte
+         << " | Precio por hora: " << precio << endl;
 }
-
 
 void Cancha::mostrarDis() {
-    cout << "Disponibilidad de la cancha " << codigo << endl;
-    cout << "********************************" << endl;
-
-    int hora = 8;
     for (int i = 0; i < 12; i++) {
-        cout << hora << ":00  ";
-        hora++;
+        cout << "[" << i << "] "
+             << i + 8 << ":00-" << i + 9 << ":00: "
+             << v[i] << endl;
     }
-    cout << endl;
-
-    for (int i = 0; i < 12; i++) {
-        cout << " " << v[i] << "    ";
-    }
-    cout << endl;
-
-    for (int i = 0; i < 12; i++) {
-        cout << "[" << i << "]  ";
-    }
-    cout << endl;
 }
 
+bool Cancha::libre(int ini, int fin) {
+    if (ini < 0 || fin >= 12 || ini > fin) return false;
 
-bool Cancha::libre(int horaInicial, int horaFinal) {
-    if (horaInicial < 0 || horaFinal > 11 || horaInicial > horaFinal) {
-        return false;
-    }
-    for (int i = horaInicial; i <= horaFinal; i++) {
-        if (v[i] != 'L') {
-            return false;
-        }
+    for (int i = ini; i <= fin; i++) {
+        if (v[i] != 'L') return false;
     }
     return true;
 }
 
+bool Cancha::estaOcupada(int franja) {
+    return franja >= 0 && franja < 12 && v[franja] == 'O';
+}
 
-void Cancha::ocupado(int horaInicial, int horaFinal) {
-    for (int i = horaInicial; i <= horaFinal; i++) {
+void Cancha::ocupado(int ini, int fin) {
+    if (ini < 0 || fin >= 12 || ini > fin) return;
+    for (int i = ini; i <= fin; i++) {
         if (v[i] == 'L') v[i] = 'O';
     }
 }
 
-
-void Cancha::liberar(int horaInicial, int horaFinal) {
-    for (int i = horaInicial; i <= horaFinal; i++) {
+void Cancha::liberar(int ini, int fin) {
+    if (ini < 0 || fin >= 12 || ini > fin) return;
+    for (int i = ini; i <= fin; i++) {
         if (v[i] == 'O') v[i] = 'L';
     }
 }
 
-
-void Cancha::mantenimiento(int horaInicial, int horaFinal) {
-    for (int i = horaInicial; i <= horaFinal; i++) {
-        if (v[i] == 'L') v[i] = 'M';
+void Cancha::mantenimiento(int ini, int fin) {
+    if (libre(ini, fin)) {
+        for (int i = ini; i <= fin; i++) v[i] = 'M';
     }
 }
 
-
-void Cancha::quitarMant(int horaInicial, int horaFinal) {
-    for (int i = horaInicial; i <= horaFinal; i++) {
+void Cancha::quitarmant(int ini, int fin) {
+    if (ini < 0 || fin >= 12 || ini > fin) return;
+    for (int i = ini; i <= fin; i++) {
         if (v[i] == 'M') v[i] = 'L';
     }
 }
+<<<<<<< HEAD
 
 
 bool sonIguales(char a[], char b[]) {
@@ -258,5 +190,7 @@ int buscarCancha(Cancha canchas[], int total, char codigo[]) {
 
     } while (opcion != 6);
 
+=======
+>>>>>>> e3a4b7b3c3d328f5dc8710a1ef6f20f82357af90
     return 0;
 }*/
