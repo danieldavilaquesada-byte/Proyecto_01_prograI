@@ -3,7 +3,7 @@
 #include "GestorCanchas.h"
 #include "ColeccionClientes.h"
 #include "ColeReservas.h"
-#include "Reportes.h"
+#include "Informes.h"
 
 using namespace std;
 
