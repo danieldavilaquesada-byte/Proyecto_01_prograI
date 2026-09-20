@@ -2,15 +2,15 @@
 #define COLERESERVAS_H
 #include "Reservas.h"
 #include <string>
-const int MAX_RESERVAS=120;
+const int max_reserv=120;
 class ColeReservas{
     private:
-    Reserva* reservas[MAX_RESERVAS];
+    Reserva* reservas[max_reserv];
     int canti;
     public:
-    int getCanti();
-    Reserva* getReserva(int i);
     ColeReservas();
+    int getCanti();
+    Reserva* getReserva(int posicion);
     bool agregarReserva(Reserva*reservas);
     void mostrarT();
     Reserva* buscarReserva(int num);
