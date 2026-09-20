@@ -1,22 +1,19 @@
-#ifndef REPORTES_H
-#define REPORTES_H
+#ifndef INFORMES_H
+#define INFORMES_H
 #include<iostream>
 #include "ColeReservas.h"
 #include "GestorCanchas.h"
 using namespace std;
-class Reportes{
+class Informes{
     private:
     ColeReservas* cole;
     GestorCanchas* gestor;
     public:
-    Reportes(ColeReservas* c, GestorCanchas* g);
+    Informes(ColeReservas* c, GestorCanchas* g);
     void canchaMayor();
     void clienteMayor();
     void ingresoT();
     void porcenOcupacion();
     void horasMayMen();
-    void porcentajeOcupacion();
-    void horasMayorMenor();
-    void ingresoTotal();
 };
 #endif
