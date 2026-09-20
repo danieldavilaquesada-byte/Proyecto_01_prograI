@@ -1,24 +1,14 @@
 #include <iostream>
 using namespace std;
 #include "ColeReservas.h"
-int ColeReservas::getCanti() {
-    return canti;
-}
-
-Reserva* ColeReservas::getReserva(int i) {
-    if (i >= 0 && i < canti) {
-        return reservas[i];
-    }
-    return nullptr;
-}
 ColeReservas::ColeReservas(){
     canti=0;
-    for(int i=0;i<MAX_RESERVAS;i++){
+    for(int i=0;i<max_reserv;i++){
         reservas[i]=nullptr;
     }
 }
 bool ColeReservas::agregarReserva(Reserva* reserva){
-    if(canti<MAX_RESERVAS){
+    if(canti<max_reserv){
         reservas[canti]=reserva;
         canti++;
         return true;
@@ -67,7 +57,7 @@ bool ColeReservas::cancelarReserva(int num){
         return false;
     }
    Reserva* ColeReservas::registrarReserva(Cliente* cli, Cancha* canch, int horaInicial, int cant) {
-    if (canti >= MAX_RESERVAS) {
+    if (canti >= max_reserv) {
         cout << "No se pueden registrar mas reservas. Limite alcanzado." << endl;
         return nullptr;
     }
