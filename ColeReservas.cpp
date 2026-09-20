@@ -74,3 +74,15 @@ bool ColeReservas::cancelarReserva(int num){
     agregarReserva(nueva);
     return nueva;
 }
+    int ColeReservas::getCanti() {
+    return canti;
+}
+Reserva* ColeReservas::getReserva(int i) {
+    if (i >= 0 && i < canti) {
+        return reservas[i];
+    }
+    return nullptr;
+}
+
+
+

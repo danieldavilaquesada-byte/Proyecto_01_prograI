@@ -10,7 +10,7 @@ class ColeReservas{
     public:
     ColeReservas();
     int getCanti();
-    Reserva* getReserva(int posicion);
+    Reserva* getReserva(int i);
     bool agregarReserva(Reserva*reservas);
     void mostrarT();
     Reserva* buscarReserva(int num);

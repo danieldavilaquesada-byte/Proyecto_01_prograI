@@ -23,6 +23,7 @@ public:
     string getDeporte();
     double getPrecio();
     void setPrecio(double nuevoPrecio);
+    bool estaOcupada(int franja);  // true si es O, false si es L o M
 
     void mostrarCancha();
     void mostrarDis();  // las 12
